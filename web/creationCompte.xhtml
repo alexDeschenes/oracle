@@ -10,8 +10,7 @@
                 Vous êtes sur création de compte
             </ui:define>
 
-            <ui:define name="content">
-                
+            <ui:define name="content">                
                 <h:form id="CreationCompte" class="basic-grey">
 
                     <h:outputLabel>Nom d'utilisateur</h:outputLabel>
@@ -25,16 +24,9 @@
                     <br />
                     <h:commandButton value="S'inscrire" action="#{ajouterUtilisateur.ajouterMembre()}" class="button"></h:commandButton>
                     <br />
-                    <h:outputText value="#{ajouterUtilisateur.message}"></h:outputText>
-                   
+                    <h:outputText value="#{ajouterUtilisateur.message}"></h:outputText>                   
                 </h:form> 
-
             </ui:define>
-
-            <ui:define name="bottom">
-                
-            </ui:define>
-
         </ui:composition>
 
     </body>

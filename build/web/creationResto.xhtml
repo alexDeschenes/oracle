@@ -22,9 +22,7 @@
                     <h:outputLabel>Site web du resto</h:outputLabel>
                     <h:inputText id="siteWeb" value="#{gestionRestos.siteWeb}"></h:inputText>
                     <h:inputFile value="#{gestionRestos.image}" />
-
-                   
-                    
+                                      
                     <br />
                     <h:commandButton value="ajouter" action="#{gestionRestos.ajouterResto()}" class="button"></h:commandButton>
                     <br />
@@ -32,12 +30,6 @@
                 </h:form> 
 
             </ui:define>
-
-            <ui:define name="bottom">
-                bottom
-            </ui:define>
-
         </ui:composition>
-
     </body>
 </html>

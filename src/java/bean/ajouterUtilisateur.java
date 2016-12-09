@@ -69,23 +69,22 @@ public class ajouterUtilisateur {
         MembreUtil.ajouterClient(nomUtil, MdpConf, email, Mdp);
         message = "Le client a bien été ajouté!";
     }
-    public Membre getMembreCon()
+    public void getMembreCon()
     {
         Membre unMem ;
         unMem=MembreUtil.getClientConnexion(nomUtil,Mdp);
         if(unMem == null)
-        {
-            
+        {           
           message = "Aucun membre trouvé";
         }
         else
         {  
           message = "Le client a été trouvé!";
-
         }
-  
-        return unMem;
-       
+        FacesContext facesContext = FacesContext.getCurrentInstance();          
+        HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+        session.setAttribute("membreConnecte", unMem);   
+        session.setAttribute("email", unMem.getEmail());
     }
    public void ajoutCommentaire()
     {
