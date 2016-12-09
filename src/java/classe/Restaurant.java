@@ -2,7 +2,9 @@ package classe;
 // Generated 2016-12-05 17:18:41 by Hibernate Tools 4.3.1
 
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -64,8 +66,36 @@ public class Restaurant  implements java.io.Serializable {
     public void SupCommentaire(Commentaire com) {
        this.commentaires.remove(com);
     }
-
-    
+   public List<Commentaire> ListCommentaire(){
+        
+        Object[] arrayCommentaire =this.commentaires.toArray();
+        List<Commentaire> lstCom = new ArrayList<Commentaire>();
+         for (int i=0;i<this.commentaires.size()  ;i++)
+        {
+            Commentaire unCom = (Commentaire) arrayCommentaire[i];
+             lstCom.add(unCom);
+        }
+         
+        return lstCom;
+    }
+   public double MoyenneNote(){
+        
+        double total=0;
+        List<Commentaire> lstCom = this.ListCommentaire();
+         for (int i=0;i<lstCom.size()  ;i++)
+        {
+           total +=+lstCom.get(i).getNote();
+        }
+         
+        return total/lstCom.size();
+    }
+     public Commentaire GetCommentaire(int index){
+        
+        Object[] arrayCommentaire =this.commentaires.toArray();
+        Commentaire unCom = (Commentaire) arrayCommentaire[index];
+         
+        return unCom;
+    }
     public void setTypecuisine(Typecuisine typecuisine) {
         this.typecuisine = typecuisine;
     }

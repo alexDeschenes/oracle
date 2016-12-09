@@ -14,6 +14,13 @@
             <ui:define name="content">
                 <h1><h:outputText value="#{gestionRestos.getResto(1).nom}"></h:outputText></h1>
             </ui:define>
+            <ui:define name="content">
+                <h2>Restaurants ajoutés récemment</h2>
+                <ui:repeat value="#{gestionRestos.lstCommentaire(1)}" var="com">
+                    <li>/#{com.contenu}, #{com.membre}</li> 
+                </ui:repeat>
+                <h2><h:outputText value="#{gestionRestos.MoyenneNote(1)}"></h:outputText></h2>
+            </ui:define>
         </ui:composition>
     </body>
 </html>

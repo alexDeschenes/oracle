@@ -3,7 +3,9 @@ package classe;
 
 
 import java.sql.Array;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
@@ -100,6 +102,18 @@ public class Membre  implements java.io.Serializable {
         Commentaire unCom = (Commentaire) arrayCommentaire[index];
          
         return unCom;
+    }
+    public List<Commentaire> ListCommentaire(){
+        
+        Object[] arrayCommentaire =this.commentaires.toArray();
+        List<Commentaire> lstCom = new ArrayList<Commentaire>();
+         for (int i=0;i<this.commentaires.size() ;i++)
+        {
+            Commentaire unCom = (Commentaire) arrayCommentaire[i];
+             lstCom.add(unCom);
+        }
+         
+        return lstCom;
     }
     public String getNomutil() {
         return this.nomutil;

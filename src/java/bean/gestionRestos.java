@@ -5,6 +5,7 @@
  */
 package bean;
 
+import classe.Commentaire;
 import classe.Membre;
 import classe.MembreUtil;
 import classe.Restaurant;
@@ -19,6 +20,8 @@ import javax.faces.bean.RequestScoped;
 import java.io.IOException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 
@@ -62,6 +65,11 @@ public class gestionRestos {
         lstResto = restoUti.RestosRécents();
         return lstResto;
     }
+     public List<Commentaire> lstCommentaire(int index)
+    {
+        Restaurant  unResto =restoUti.getRestoId(index);
+        return unResto.ListCommentaire();
+    }
     
     public List<Restaurant> ListResto(int id)
     {
@@ -79,6 +87,12 @@ public class gestionRestos {
         List<Restaurant> lstResto;
         lstResto = restoUti.RechercherRestos(infoRestoRecherche);
         return lstResto;
+    }
+      
+    public double MoyenneNote(int id){
+        Restaurant  unResto =restoUti.getRestoId(id);
+        return unResto.MoyenneNote();
+        
     }
    
     public void setNom(String nom) {

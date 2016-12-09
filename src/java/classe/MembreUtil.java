@@ -24,9 +24,10 @@ import org.hibernate.Transaction;
 @RequestScoped
 public class MembreUtil {
     Session session = null;
-    public String ajouterCommentaire(String contenu, int note)
+    public String ajouterCommentaire(Membre mem,String contenu, int note)
     {
-        Membre mem = this.getClientId(1);
+        
+        
         restaurantUtil resUti = new restaurantUtil();
         Restaurant unResto = resUti.getRestoId(1);     
            
@@ -43,7 +44,9 @@ public class MembreUtil {
         }
         else
         {
-           try{                                    
+           try{ 
+            this.session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
             Date dateCreation = new Date();
             Commentaire unCommentaire = new Commentaire();
             unCommentaire.setMembre(mem);

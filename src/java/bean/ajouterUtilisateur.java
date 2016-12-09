@@ -11,6 +11,7 @@ import classe.MembreUtil;
 import classe.Restaurant;
 import classe.Typemembre;
 import java.util.Date;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
@@ -80,18 +81,33 @@ public class ajouterUtilisateur {
         else
         {  
           message = "Le client a été trouvé!";
-        }
         FacesContext facesContext = FacesContext.getCurrentInstance();          
         HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
         session.setAttribute("membreConnecte", unMem);   
         session.setAttribute("email", unMem.getEmail());
+       
+        }
+        
+     
+      
+        
     }
    public void ajoutCommentaire()
     {
-        
-        
-        String succes = MembreUtil.ajouterCommentaire(contenu, note);
-        message =succes;
+         FacesContext facesContext = FacesContext.getCurrentInstance();          
+        HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+        Membre unMem =(Membre) session.getAttribute("membreConnecte");
+        if(unMem != null)
+        {
+               String succes = MembreUtil.ajouterCommentaire(unMem,contenu, note);
+                message =succes;
+            
+        }
+        else
+        {
+            message= "Vous devez vous connectez avant d'inscrire un commentaire";
+        }
+     
     }
    public void supCommentaire(int index)
     {
@@ -99,6 +115,13 @@ public class ajouterUtilisateur {
         
         MembreUtil.supCommentaire(index);
         message ="le commentaire a été suprimmé";
+    }
+    public List<Commentaire> lstCommentaire()
+    {
+        FacesContext facesContext = FacesContext.getCurrentInstance();          
+        HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+        Membre unMem =(Membre) session.getAttribute("membreConnecte");
+        return unMem.ListCommentaire();
     }
    public Commentaire getCommentaire(int index)
    {
