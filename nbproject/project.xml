@@ -12,42 +12,14 @@
                 </library>
                 <library dirs="200">
                     <file>${file.reference.javax.faces-api-2.1.jar}</file>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.ojdbc7.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.javax.faces-api-2.1.jar-1}</file>
+                    <file>${file.reference.mysql-connector-java-5.1.18-bin.jar-2}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.jboss-transaction-api_1.2_spec-1.0.0.Final.jar}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.mysql-connector-java-5.1.18-bin.jar}</file>
-                </library>
-                <library dirs="200">
-<<<<<<< HEAD
-=======
-                    <file>${file.reference.ojdbc7.jar}</file>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.javax.faces-api-2.1.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.jboss-transaction-api_1.2_spec-1.0.0.Final.jar}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.mysql-connector-java-5.1.18-bin.jar-1}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
->>>>>>> 91b860efd8edbc3d6ed3dc451b31ea72cb02001e
-                    <file>${file.reference.ojdbc7.jar-1}</file>
+                    <file>${file.reference.ojdbc7.jar-2}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
