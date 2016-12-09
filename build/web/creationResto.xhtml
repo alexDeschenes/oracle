@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./gabarit.xhtml">
+
+            <ui:define name="top">
+                top
+            </ui:define>
+
+            <ui:define name="content">
+                 <h:form enctype="multipart/form-data" id="CreationCompte" class="basic-grey">
+
+                    <h:outputLabel>Nom du restaurant</h:outputLabel>
+                    <h:inputText id="nomResto" value="#{gestionRestos.nom}"></h:inputText>
+                    <h:outputLabel>description</h:outputLabel>
+                    <h:inputText id="description" value="#{gestionRestos.description}"></h:inputText>
+                    <h:outputLabel>Site web du resto</h:outputLabel>
+                    <h:inputText id="siteWeb" value="#{gestionRestos.siteWeb}"></h:inputText>
+                    <h:inputFile value="#{gestionRestos.image}" />
+
+                   
+                    
+                    <br />
+                    <h:commandButton value="ajouter" action="#{gestionRestos.ajouterResto()}" class="button"></h:commandButton>
+                    <br />
+                    <h:outputText value="#{gestionRestos.message}"></h:outputText>
+                </h:form> 
+
+            </ui:define>
+
+            <ui:define name="bottom">
+                bottom
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
