@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.Part;
 import org.hibernate.Query;
@@ -180,10 +181,11 @@ public class restaurantUtil {
      public String upload(Part img) throws IOException {
          try (InputStream inputStream = img.getInputStream()) {
              String path =getFilename(img);
-             File file = new File("C:/Users/Alexandre/Documents/NetBeansProjects/TpPeFinal/web/resources/images/"+path);
              
-             
-             
+             String pathAbsolute= FacesContext.getCurrentInstance().getExternalContext().getRealPath("/resources/images");
+             String wow=pathAbsolute+"\\"+path;
+             String unTest =wow.replace('\\', '/');
+             File file = new File(unTest);
              
              FileOutputStream outputStream = new FileOutputStream(file);
              
