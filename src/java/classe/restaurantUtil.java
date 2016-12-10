@@ -5,11 +5,13 @@
  */
 package classe;
 
+import java.io.BufferedInputStream;
 import java.util.List;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import javax.faces.context.FacesContext;
 import javax.servlet.http.Part;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -33,7 +35,8 @@ public class restaurantUtil {
             String path = getFilename(img);
             try
             {
-            img.write("\\web\\resources\\images\\" +path);
+            this.upload(img);
+         
             }
             catch(Exception e)
             {
@@ -172,6 +175,34 @@ public class restaurantUtil {
         this.session.close();
         return listeResto;
     }
+      // source : http://www.ramkitech.com/2013/06/file-upload-is-easy-in-jsf22.html
+    
+     public String upload(Part img) throws IOException {
+         try (InputStream inputStream = img.getInputStream()) {
+             String path =getFilename(img);
+             File file = new File("C:/Users/Alexandre/Documents/NetBeansProjects/TpPeFinal/web/resources/images/"+path);
+             
+             
+             
+             
+             FileOutputStream outputStream = new FileOutputStream(file);
+             
+             byte[] buffer = new byte[4096];
+             int bytesRead = 0;
+             while(true) {
+                 bytesRead = inputStream.read(buffer);
+                 if(bytesRead > 0) {
+                     outputStream.write(buffer, 0, bytesRead);
+                 }else {
+                     break;
+                 }
+             }
+             outputStream.close();
+         }
+        
+        return "success";
+    }
+         
      // source : http://www.ramkitech.com/2013/06/file-upload-is-easy-in-jsf22.html
      
  
