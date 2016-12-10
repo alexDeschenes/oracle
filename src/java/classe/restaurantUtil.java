@@ -183,9 +183,9 @@ public class restaurantUtil {
              String path =getFilename(img);
              
              String pathAbsolute= FacesContext.getCurrentInstance().getExternalContext().getRealPath("/resources/images");
-             String wow=pathAbsolute+"\\"+path;
-             String unTest =wow.replace('\\', '/');
-             File file = new File(unTest);
+             String pathAModif=pathAbsolute+"\\"+path;
+             String pathFinal =pathAModif.replace('\\', '/');
+             File file = new File(pathFinal);
              
              FileOutputStream outputStream = new FileOutputStream(file);
              
